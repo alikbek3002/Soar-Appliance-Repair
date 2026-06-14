@@ -1,0 +1,32 @@
+# ── Secrets (NEVER commit) ──
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# ── Node / Next.js (web) ──
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# ── Python (bot) ──
+__pycache__/
+*.pyc
+.venv/
+venv/
+bot/subscribers.json
+bot/subscribers.json.tmp
+
+# ── Railway / tooling ──
+.railway/
+
+# ── OS / editor ──
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
