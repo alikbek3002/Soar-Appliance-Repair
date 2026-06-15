@@ -1,10 +1,15 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export const alt = "Soar Appliance Repair — On-site appliance repair in Streamwood, IL";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OgImage() {
+export default async function OgImage() {
+  const emblem = await readFile(join(process.cwd(), "public", "soar-emblem-dark.png"));
+  const emblemSrc = `data:image/png;base64,${emblem.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -19,32 +24,9 @@ export default function OgImage() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
-          <div
-            style={{
-              width: 84,
-              height: 84,
-              borderRadius: "50%",
-              background: "#3a444d",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <div
-              style={{
-                width: 34,
-                height: 34,
-                borderRadius: "50%",
-                background: "#f4f6f7",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div style={{ width: 14, height: 14, borderRadius: "50%", background: "#3a444d" }} />
-            </div>
-          </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={emblemSrc} width={84} height={90} alt="" />
           <div style={{ fontSize: 40, fontWeight: 700, color: "#1e252b" }}>
             Soar Appliance Repair
           </div>

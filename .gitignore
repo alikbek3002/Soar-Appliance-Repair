@@ -30,3 +30,6 @@ bot/subscribers.json.tmp
 Thumbs.db
 .idea/
 .vscode/
+
+# ── Playwright MCP screenshots ──
+.playwright-mcp/

@@ -20,7 +20,7 @@ export default function StructuredData() {
     telephone: CONTACT.phoneE164,
     email: CONTACT.email,
     image: `${SITE_URL}/opengraph-image`,
-    logo: `${SITE_URL}/icon`,
+    logo: `${SITE_URL}/icon-512.png`,
     priceRange: BUSINESS.priceRange,
     currenciesAccepted: "USD",
     paymentAccepted: BUSINESS.paymentAccepted.join(", "),

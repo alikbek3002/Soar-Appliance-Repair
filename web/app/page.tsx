@@ -1,4 +1,3 @@
-import Gear from "@/components/Gear";
 import Reveal from "@/components/Reveal";
 import RequestForm from "@/components/RequestForm";
 import { BUSINESS, CONTACT, FAQ, SERVICES } from "@/lib/site";
@@ -13,11 +12,14 @@ export default function Home() {
 
       <header className="header">
         <div className="header-inner">
-          <a href="#top" className="brand">
-            <Gear size={40} toothColor="#3a444d" voidColor="#f4f6f7" />
-            <span className="brand-name">
-              Soar <span className="accent">Appliance Repair</span>
-            </span>
+          <a href="#top" className="brand" aria-label="Soar Appliance Repair — home">
+            <img
+              src="/soar-logo-full.png"
+              alt="Soar Appliance Repair"
+              className="brand-logo"
+              width={607}
+              height={231}
+            />
           </a>
           <a href={CONTACT.phoneHref} className="nav-cta">{CONTACT.phoneDisplay}</a>
           <nav className="nav">
@@ -155,8 +157,13 @@ export default function Home() {
         <div className="footer-inner">
           <div className="footer-brand">
             <div className="footer-brand-row">
-              <Gear size={34} toothColor="#b4bcc3" voidColor="#1b2127" />
-              <span className="footer-brand-name">Soar Appliance Repair</span>
+              <img
+                src="/soar-logo-full.png"
+                alt="Soar Appliance Repair"
+                className="footer-logo"
+                width={607}
+                height={231}
+              />
             </div>
             <p>On-site appliance repair across Streamwood and the greater Chicago area.</p>
           </div>
