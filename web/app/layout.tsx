@@ -6,7 +6,7 @@ import "./globals.css";
 const TITLE =
   "Appliance Repair in Streamwood, IL | On-Site & Same-Day | Soar Appliance Repair";
 const DESCRIPTION =
-  "On-site appliance repair in Streamwood, IL and the greater Chicago area. We come to you to fix refrigerators, washers, dryers, ovens, dishwashers, microwaves, HVAC and water heaters — fast, professional, often same-day. Call (224) 442-2422.";
+  "On-site appliance repair in Streamwood, IL and the greater Chicago area. We come to you to fix refrigerators, washers, dryers, ovens, dishwashers and ice makers — fast, professional, often same-day. Call (224) 442-2422.";
 
 export function generateMetadata(): Metadata {
   const SITE_URL = siteUrl();
@@ -29,8 +29,8 @@ export function generateMetadata(): Metadata {
     "washer and dryer repair Chicago",
     "dishwasher repair near me",
     "oven and stove repair",
-    "HVAC repair Streamwood",
-    "water heater repair",
+    "ice maker repair",
+    "ice maker repair near me",
     "appliance repair Hoffman Estates",
     "appliance repair Schaumburg",
     "appliance repair Elgin",

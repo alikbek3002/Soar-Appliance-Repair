@@ -40,10 +40,7 @@ export const BUSINESS = {
     "Washer and dryer repair",
     "Dishwasher repair",
     "Oven and stove repair",
-    "Microwave repair",
-    "Garbage disposal repair",
-    "HVAC and AC repair",
-    "Water heater repair",
+    "Ice maker repair",
   ],
 } as const;
 
@@ -59,7 +56,7 @@ export const FAQ = [
   },
   {
     q: "What appliances do you repair?",
-    a: "We repair all major home appliances: refrigerators and freezers, washers and dryers, dishwashers, ovens, stoves and cooktops, microwaves, garbage disposals, HVAC and AC units, and water heaters.",
+    a: "We repair major home appliances: refrigerators and freezers, washers and dryers, dishwashers, ovens, stoves and cooktops, and ice makers.",
   },
   {
     q: "Can you offer same-day or fast appliance repair?",
@@ -89,10 +86,7 @@ export const SERVICES = [
   { num: "02", name: "Washers & Dryers", desc: "Drainage, spin, heating, and noisy drums." },
   { num: "03", name: "Dishwashers", desc: "Drainage, leaks, and poor cleaning performance." },
   { num: "04", name: "Ovens, Stoves & Cooktops", desc: "Heating elements, igniters, and controls." },
-  { num: "05", name: "Microwaves", desc: "Power loss, turntable, and door faults." },
-  { num: "06", name: "Garbage Disposals", desc: "Jams, leaks, and motor replacements." },
-  { num: "07", name: "HVAC & AC Units", desc: "Cooling, airflow, and thermostat repairs." },
-  { num: "08", name: "Water Heaters", desc: "No hot water, leaks, and pressure issues." },
+  { num: "05", name: "Ice Makers", desc: "No ice, slow production, and leaks." },
 ];
 
 export const APPLIANCE_OPTIONS = [
@@ -100,9 +94,6 @@ export const APPLIANCE_OPTIONS = [
   "Washer / Dryer",
   "Dishwasher",
   "Oven / Stove / Cooktop",
-  "Microwave",
-  "Garbage Disposal",
-  "HVAC / AC Unit",
-  "Water Heater",
+  "Ice Maker",
   "Other",
 ];

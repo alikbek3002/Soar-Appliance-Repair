@@ -87,7 +87,7 @@ export default function Home() {
                 <h3>Every major appliance in your home.</h3>
                 <span className="label">What we repair</span>
               </div>
-              <div className="services-hint" aria-hidden="true">Swipe to see all 8 →</div>
+              <div className="services-hint" aria-hidden="true">Swipe to see all 5 →</div>
               <div className="services-grid" data-reveal>
                 {SERVICES.map((s) => (
                   <div className="service-card" key={s.num}>
@@ -181,8 +181,7 @@ export default function Home() {
               <a href="#services">Washers &amp; Dryers</a>
               <a href="#services">Dishwashers</a>
               <a href="#services">Ovens &amp; Cooktops</a>
-              <a href="#services">HVAC &amp; AC Units</a>
-              <a href="#services">Water Heaters</a>
+              <a href="#services">Ice Makers</a>
             </div>
           </div>
 
