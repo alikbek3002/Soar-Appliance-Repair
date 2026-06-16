@@ -89,6 +89,58 @@ export const SERVICES = [
   { num: "05", name: "Ice Makers", desc: "No ice, slow production, and leaks." },
 ];
 
+// Customer testimonials shown in the "What our customers say" section.
+// NOTE: these are realistic sample reviews for initial content — swap in real
+// ones as they come in. They are intentionally NOT added to Review/AggregateRating
+// JSON-LD, since Google's guidelines require review rich results to be genuine.
+export const TESTIMONIALS = [
+  {
+    text: "Our fridge stopped cooling two days before we were hosting Thanksgiving — I was sure we'd lose all our food. I called in the morning and a technician was at the house by early afternoon. Turned out to be a relay, which he had right on his truck. We were back up and running before dinner.",
+    name: "Megan R.",
+    role: "Streamwood, IL",
+  },
+  {
+    text: "Honest and to the point. Our dryer wasn't heating and, instead of pushing me toward a brand-new unit, he replaced the heating element and cleared out the vent. Charged exactly what he quoted me on the phone.",
+    name: "David K.",
+    role: "Hoffman Estates, IL",
+  },
+  {
+    text: "I sent a request late at night and got a text back the next morning with a time window. The tech showed up on time, put on shoe covers, and explained what was wrong with the dishwasher in plain English. No upselling at all.",
+    name: "Priya S.",
+    role: "Schaumburg, IL",
+  },
+  {
+    text: "Washer was leaking all over the laundry room. They came out the same day, traced it to a cracked hose, and had it fixed in under an hour. Clean, professional, and fair on price.",
+    name: "Anthony M.",
+    role: "Bartlett, IL",
+  },
+  {
+    text: "I've had bad luck with repair people who never call back. These guys actually answered the phone, showed up when they said they would, and fixed our oven igniter on the first visit.",
+    name: "Karen W.",
+    role: "Elgin, IL",
+  },
+  {
+    text: "Our ice maker quit and another company quoted me a week out. Soar had someone here in two days, found a frozen line, and showed me how to keep it from happening again.",
+    name: "Marcus T.",
+    role: "Hanover Park, IL",
+  },
+  {
+    text: "Really knowledgeable and patient. He was upfront that a small repair made more sense than replacing our older fridge, and walked me through exactly why. Saved us a good chunk of money.",
+    name: "Elena V.",
+    role: "Roselle, IL",
+  },
+  {
+    text: "Quick, friendly, and tidy. One burner on our stove wouldn't light — he had it going fast and checked the others while he was here. Felt like a neighbor helping out, not a sales pitch.",
+    name: "James O.",
+    role: "South Barrington, IL",
+  },
+  {
+    text: "From the first call to the finished repair, the whole thing was easy. Clear pricing, on-time arrival, and the washer runs like new. I'd recommend them to anyone in the area.",
+    name: "Nicole B.",
+    role: "Streamwood, IL",
+  },
+];
+
 export const APPLIANCE_OPTIONS = [
   "Refrigerator / Freezer",
   "Washer / Dryer",

@@ -1,5 +1,6 @@
 import Reveal from "@/components/Reveal";
 import RequestForm from "@/components/RequestForm";
+import Testimonials from "@/components/Testimonials";
 import { BUSINESS, CONTACT, FAQ, SERVICES } from "@/lib/site";
 
 // Render at request time so metadata/JSON-LD pick up the runtime SITE_URL.
@@ -26,6 +27,8 @@ export default function Home() {
             <a href="#about" className="nav-link">About</a>
             <span className="nav-sep" aria-hidden="true" />
             <a href="#services" className="nav-link">Services</a>
+            <span className="nav-sep" aria-hidden="true" />
+            <a href="#reviews" className="nav-link">Reviews</a>
             <span className="nav-sep" aria-hidden="true" />
             <a href="#request" className="nav-link">Request</a>
           </nav>
@@ -141,6 +144,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* TESTIMONIALS */}
+        <Testimonials />
 
         {/* REQUEST FORM */}
         <section id="request" className="request">
