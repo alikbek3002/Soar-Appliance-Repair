@@ -194,7 +194,7 @@ function PixelCanvas({ colors, gap = 6, speed = 30 }: { colors: string[]; gap?: 
 }
 
 // Appliance brands we service — replaces the original tech-logo marquee.
-const BRANDS = ["Samsung", "LG", "Whirlpool", "Bosch", "GE", "Maytag", "KitchenAid", "Frigidaire", "Sub-Zero", "Speed Queen"];
+const BRANDS = ["Samsung", "LG", "Whirlpool", "Bosch", "GE", "KitchenAid", "Frigidaire", "Sub-Zero", "Speed Queen"];
 
 // Pixel palette tuned for the light (white) hero background — mostly soft grey
 // with an occasional slate accent so the field reads as subtle texture.

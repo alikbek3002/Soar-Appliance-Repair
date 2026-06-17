@@ -97,7 +97,7 @@ export const SERVICES = [
       "Loud noises, a running compressor that won't stop",
       "Broken thermostats, fans, and door seals",
     ],
-    brands: ["Samsung", "LG", "Whirlpool", "GE", "Frigidaire", "Maytag", "KitchenAid", "Bosch", "Sub-Zero", "Kenmore"],
+    brands: ["Samsung", "LG", "Whirlpool", "GE", "Frigidaire", "KitchenAid", "Bosch", "Sub-Zero", "Kenmore"],
   },
   {
     num: "02",
@@ -111,7 +111,7 @@ export const SERVICES = [
       "Leaks, error codes, and door/lid lock faults",
       "Worn belts, pumps, and heating elements",
     ],
-    brands: ["Samsung", "LG", "Whirlpool", "Maytag", "GE", "Frigidaire", "Bosch", "Speed Queen", "Electrolux", "Kenmore"],
+    brands: ["Samsung", "LG", "Whirlpool", "GE", "Frigidaire", "Bosch", "Speed Queen", "Electrolux", "Kenmore"],
   },
   {
     num: "03",
@@ -125,7 +125,7 @@ export const SERVICES = [
       "Won't start, won't fill, or stops mid-cycle",
       "Faulty pumps, spray arms, and door latches",
     ],
-    brands: ["Bosch", "Whirlpool", "KitchenAid", "Samsung", "LG", "GE", "Frigidaire", "Maytag", "Kenmore"],
+    brands: ["Bosch", "Whirlpool", "KitchenAid", "Samsung", "LG", "GE", "Frigidaire", "Kenmore"],
   },
   {
     num: "04",
@@ -139,7 +139,7 @@ export const SERVICES = [
       "Broken control boards, knobs, and displays",
       "Bad heating elements and bake/broil igniters",
     ],
-    brands: ["GE", "Whirlpool", "Samsung", "LG", "Frigidaire", "Maytag", "KitchenAid", "Bosch", "Viking", "Kenmore"],
+    brands: ["GE", "Whirlpool", "Samsung", "LG", "Frigidaire", "KitchenAid", "Bosch", "Viking", "Kenmore"],
   },
   {
     num: "05",
