@@ -81,12 +81,80 @@ export const CONTACT = {
   addressLine2: "Streamwood, IL 60107",
 };
 
+// Each service powers a photo tile in the services carousel. Clicking a tile
+// opens a modal with the longer description, common issues we fix, and the
+// brands/models we service. Swap `img` for your own photos in /public/services.
 export const SERVICES = [
-  { num: "01", name: "Refrigerators & Freezers", desc: "Cooling failures, leaks, and temperature problems." },
-  { num: "02", name: "Washers & Dryers", desc: "Drainage, spin, heating, and noisy drums." },
-  { num: "03", name: "Dishwashers", desc: "Drainage, leaks, and poor cleaning performance." },
-  { num: "04", name: "Ovens, Stoves & Cooktops", desc: "Heating elements, igniters, and controls." },
-  { num: "05", name: "Ice Makers", desc: "No ice, slow production, and leaks." },
+  {
+    num: "01",
+    name: "Refrigerators & Freezers",
+    desc: "Cooling failures, leaks, and temperature problems.",
+    img: "/services/fridge.jpg",
+    issues: [
+      "Not cooling or freezing properly",
+      "Water leaking or pooling inside",
+      "Frost buildup or a freezer that won't defrost",
+      "Loud noises, a running compressor that won't stop",
+      "Broken thermostats, fans, and door seals",
+    ],
+    brands: ["Samsung", "LG", "Whirlpool", "GE", "Frigidaire", "Maytag", "KitchenAid", "Bosch", "Sub-Zero", "Kenmore"],
+  },
+  {
+    num: "02",
+    name: "Washers & Dryers",
+    desc: "Drainage, spin, heating, and noisy drums.",
+    img: "/services/washer.jpg",
+    issues: [
+      "Washer won't drain, fill, or spin",
+      "Dryer not heating or taking too long to dry",
+      "Loud banging or grinding from the drum",
+      "Leaks, error codes, and door/lid lock faults",
+      "Worn belts, pumps, and heating elements",
+    ],
+    brands: ["Samsung", "LG", "Whirlpool", "Maytag", "GE", "Frigidaire", "Bosch", "Speed Queen", "Electrolux", "Kenmore"],
+  },
+  {
+    num: "03",
+    name: "Dishwashers",
+    desc: "Drainage, leaks, and poor cleaning performance.",
+    img: "/services/dishwasher.svg",
+    issues: [
+      "Dishes coming out dirty or filmy",
+      "Won't drain or standing water in the bottom",
+      "Leaking onto the floor",
+      "Won't start, won't fill, or stops mid-cycle",
+      "Faulty pumps, spray arms, and door latches",
+    ],
+    brands: ["Bosch", "Whirlpool", "KitchenAid", "Samsung", "LG", "GE", "Frigidaire", "Maytag", "Kenmore"],
+  },
+  {
+    num: "04",
+    name: "Ovens, Stoves & Cooktops",
+    desc: "Heating elements, igniters, and controls.",
+    img: "/services/oven.jpg",
+    issues: [
+      "Oven not heating or not reaching temperature",
+      "Burner or igniter won't light (gas)",
+      "Uneven baking and faulty temperature sensors",
+      "Broken control boards, knobs, and displays",
+      "Bad heating elements and bake/broil igniters",
+    ],
+    brands: ["GE", "Whirlpool", "Samsung", "LG", "Frigidaire", "Maytag", "KitchenAid", "Bosch", "Viking", "Kenmore"],
+  },
+  {
+    num: "05",
+    name: "Ice Makers",
+    desc: "No ice, slow production, and leaks.",
+    img: "/services/ice.jpg",
+    issues: [
+      "Not making ice or making too little",
+      "Ice tastes or smells off",
+      "Water leaking or freezing up the line",
+      "Ice maker won't dispense or jams",
+      "Faulty water valves, sensors, and ejector motors",
+    ],
+    brands: ["Whirlpool", "Samsung", "LG", "GE", "Frigidaire", "KitchenAid", "Scotsman", "U-Line", "Kenmore"],
+  },
 ];
 
 // Customer testimonials shown in the "What our customers say" section.
@@ -95,47 +163,47 @@ export const SERVICES = [
 // JSON-LD, since Google's guidelines require review rich results to be genuine.
 export const TESTIMONIALS = [
   {
-    text: "Our fridge stopped cooling two days before we were hosting Thanksgiving — I was sure we'd lose all our food. I called in the morning and a technician was at the house by early afternoon. Turned out to be a relay, which he had right on his truck. We were back up and running before dinner.",
+    text: "Our fridge died before Thanksgiving and they had it cooling again by dinner.",
     name: "Megan R.",
     role: "Streamwood, IL",
   },
   {
-    text: "Honest and to the point. Our dryer wasn't heating and, instead of pushing me toward a brand-new unit, he replaced the heating element and cleared out the vent. Charged exactly what he quoted me on the phone.",
+    text: "Fixed our dryer instead of selling us a new one — exactly the price quoted.",
     name: "David K.",
     role: "Hoffman Estates, IL",
   },
   {
-    text: "I sent a request late at night and got a text back the next morning with a time window. The tech showed up on time, put on shoe covers, and explained what was wrong with the dishwasher in plain English. No upselling at all.",
+    text: "On time, tidy, and explained the dishwasher problem with zero upselling.",
     name: "Priya S.",
     role: "Schaumburg, IL",
   },
   {
-    text: "Washer was leaking all over the laundry room. They came out the same day, traced it to a cracked hose, and had it fixed in under an hour. Clean, professional, and fair on price.",
+    text: "Came out the same day and fixed our leaking washer in under an hour.",
     name: "Anthony M.",
     role: "Bartlett, IL",
   },
   {
-    text: "I've had bad luck with repair people who never call back. These guys actually answered the phone, showed up when they said they would, and fixed our oven igniter on the first visit.",
+    text: "Showed up right on time and fixed the oven igniter on the first visit.",
     name: "Karen W.",
     role: "Elgin, IL",
   },
   {
-    text: "Our ice maker quit and another company quoted me a week out. Soar had someone here in two days, found a frozen line, and showed me how to keep it from happening again.",
+    text: "Had someone out in two days and our ice maker has worked perfectly since.",
     name: "Marcus T.",
     role: "Hanover Park, IL",
   },
   {
-    text: "Really knowledgeable and patient. He was upfront that a small repair made more sense than replacing our older fridge, and walked me through exactly why. Saved us a good chunk of money.",
+    text: "Honest advice to repair instead of replace — saved us a lot of money.",
     name: "Elena V.",
     role: "Roselle, IL",
   },
   {
-    text: "Quick, friendly, and tidy. One burner on our stove wouldn't light — he had it going fast and checked the others while he was here. Felt like a neighbor helping out, not a sales pitch.",
+    text: "Quick and friendly — had our stove burner lit again in minutes.",
     name: "James O.",
     role: "South Barrington, IL",
   },
   {
-    text: "From the first call to the finished repair, the whole thing was easy. Clear pricing, on-time arrival, and the washer runs like new. I'd recommend them to anyone in the area.",
+    text: "Clear pricing, on-time arrival, and the washer runs like new.",
     name: "Nicole B.",
     role: "Streamwood, IL",
   },

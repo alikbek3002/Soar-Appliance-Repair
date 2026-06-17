@@ -1,7 +1,9 @@
+import PixelHero from "@/components/PixelHero";
 import Reveal from "@/components/Reveal";
 import RequestForm from "@/components/RequestForm";
+import ServicesCarousel from "@/components/ServicesCarousel";
 import Testimonials from "@/components/Testimonials";
-import { BUSINESS, CONTACT, FAQ, SERVICES } from "@/lib/site";
+import { BUSINESS, CONTACT, FAQ } from "@/lib/site";
 
 // Render at request time so metadata/JSON-LD pick up the runtime SITE_URL.
 export const dynamic = "force-dynamic";
@@ -10,6 +12,16 @@ export default function Home() {
   return (
     <>
       <Reveal />
+
+      {/* Liquid-glass refraction filter, referenced by the header pill's
+          backdrop-filter. Hidden; only its filter definition is used. */}
+      <svg className="liquid-defs" aria-hidden="true" focusable="false">
+        <filter id="liquid-glass" x="-30%" y="-30%" width="160%" height="160%" colorInterpolationFilters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="0.009 0.014" numOctaves="2" seed="11" result="noise" />
+          <feGaussianBlur in="noise" stdDeviation="1.6" result="softNoise" />
+          <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="26" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </svg>
 
       <header className="header">
         <div className="header-inner">
@@ -22,7 +34,12 @@ export default function Home() {
               height={231}
             />
           </a>
-          <a href={CONTACT.phoneHref} className="nav-cta">{CONTACT.phoneDisplay}</a>
+          <a href={CONTACT.phoneHref} className="nav-cta" aria-label={`Call ${CONTACT.phoneDisplay}`}>
+            <svg className="nav-cta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <span className="nav-cta-text">{CONTACT.phoneDisplay}</span>
+          </a>
           <nav className="nav">
             <a href="#about" className="nav-link">About</a>
             <span className="nav-sep" aria-hidden="true" />
@@ -37,32 +54,7 @@ export default function Home() {
 
       <main id="top">
         {/* HERO */}
-        <section className="hero">
-          <div className="hero-copy">
-            <div className="eyebrow">On-Site Appliance Repair · Streamwood, IL</div>
-            <h1>Your appliances, repaired right the first time.</h1>
-            <p>
-              Soar Appliance Repair comes to you. We diagnose and fix every major appliance right in
-              your home — fast, professional service from technicians who respect your space.
-            </p>
-            <div className="hero-actions">
-              <a href="#request" className="btn-primary">Request a repair</a>
-              <a href={CONTACT.phoneHref} className="btn-ghost">Call {CONTACT.phoneDisplay}</a>
-            </div>
-          </div>
-          <div className="hero-media">
-            <div className="hero-frame">
-              <img
-                src="/image.png"
-                alt="Soar Appliance Repair technician"
-                className="hero-icon"
-                width={200}
-                height={200}
-                fetchPriority="high"
-              />
-            </div>
-          </div>
-        </section>
+        <PixelHero />
 
         {/* ABOUT + SERVICES */}
         <section id="about" className="about">
@@ -92,17 +84,7 @@ export default function Home() {
                 <h3>Every major appliance in your home.</h3>
                 <span className="label">What we repair</span>
               </div>
-              <div className="services-hint" aria-hidden="true">Swipe to see all 5 →</div>
-              <div className="services-grid" data-reveal>
-                {SERVICES.map((s) => (
-                  <div className="service-card" key={s.num}>
-                    <div className="bar" />
-                    <div className="num">{s.num}</div>
-                    <div className="title">{s.name}</div>
-                    <div className="desc">{s.desc}</div>
-                  </div>
-                ))}
-              </div>
+              <ServicesCarousel />
             </div>
 
             {/* AREAS WE SERVE — visible local-SEO content */}
