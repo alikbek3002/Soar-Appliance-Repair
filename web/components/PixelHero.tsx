@@ -198,7 +198,7 @@ const BRANDS = ["Samsung", "LG", "Whirlpool", "Bosch", "GE", "KitchenAid", "Frig
 
 // Pixel palette tuned for the light (white) hero background — mostly soft grey
 // with an occasional slate accent so the field reads as subtle texture.
-const HERO_COLORS = ["#c4cbd1", "#c4cbd1", "#b2bbc2", "#9aa3ab", "#3a444d"];
+const HERO_COLORS = ["#c4cbd1", "#b2bbc2", "#9aa3ab", "#16294a", "#1d5c9e"];
 
 function Marquee() {
   return (

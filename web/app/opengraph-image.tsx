@@ -27,7 +27,7 @@ export default async function OgImage() {
         <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={emblemSrc} width={84} height={90} alt="" />
-          <div style={{ fontSize: 40, fontWeight: 700, color: "#1e252b" }}>
+          <div style={{ fontSize: 40, fontWeight: 700, color: "#16294a" }}>
             Soar Appliance Repair
           </div>
         </div>
@@ -39,19 +39,19 @@ export default async function OgImage() {
               fontWeight: 600,
               letterSpacing: 3,
               textTransform: "uppercase",
-              color: "#3a444d",
+              color: "#1d5c9e",
             }}
           >
             On-Site Appliance Repair · Streamwood, IL
           </div>
-          <div style={{ fontSize: 64, fontWeight: 700, color: "#1e252b", lineHeight: 1.05 }}>
+          <div style={{ fontSize: 64, fontWeight: 700, color: "#16294a", lineHeight: 1.05 }}>
             Your appliances, repaired right the first time.
           </div>
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 28, color: "#555d63" }}>
           <div>We come to you · Greater Chicago area</div>
-          <div style={{ fontWeight: 700, color: "#1e252b" }}>(224) 442-2422</div>
+          <div style={{ fontWeight: 700, color: "#16294a" }}>(224) 442-2422</div>
         </div>
       </div>
     ),

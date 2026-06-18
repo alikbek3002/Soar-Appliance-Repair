@@ -107,7 +107,7 @@ export default function RequestForm() {
       <div className="confirm" ref={confirmRef}>
         <svg width="76" height="76" viewBox="0 0 76 76">
           <circle cx="38" cy="38" r="37" fill="#e3e7ea" />
-          <circle cx="38" cy="38" r="28" fill="#3a444d" />
+          <circle cx="38" cy="38" r="28" fill="#16294a" />
           <path
             d="M27 38.5 L34.5 46 L49 31"
             fill="none"
