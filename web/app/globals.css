@@ -71,10 +71,12 @@ a { color: inherit; text-decoration: none; }
      but opaque enough (plus a hairline ring + drop shadow) that the pill stays
      clearly defined over the white hero instead of blending in. */
   background: rgba(255, 255, 255, 0.68);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  /* Thin royal-blue hairline (logo accent) so the pill reads as a defined,
+     branded strip rather than blending into the white hero. */
+  border: 1px solid rgba(29, 92, 158, 0.5);
   box-shadow:
     0 12px 34px rgba(28, 35, 42, 0.18),
-    0 0 0 1px rgba(28, 35, 42, 0.07),
+    0 0 0 1px rgba(29, 92, 158, 0.16),
     inset 0 1px 1px rgba(255, 255, 255, 0.95),
     inset 0 -6px 16px rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(10px) saturate(180%);
@@ -136,7 +138,7 @@ a { color: inherit; text-decoration: none; }
 .nav-link {
   font-size: 14px;
   font-weight: 500;
-  color: #555d63;
+  color: var(--blue);
   transition: color 0.2s ease;
 }
 .nav-link:hover { color: var(--navy); }
@@ -1193,6 +1195,51 @@ textarea { min-height: 110px; resize: vertical; line-height: 1.5; }
   letter-spacing: 0.04em;
   color: #98a0a7;
   margin: -6px 0 14px;
+}
+
+/* Animated "glint" on the big section headings — same idea as the hero
+   title: a light-blue highlight slowly sweeps across the navy serif text.
+   Placed after the heading rules so its `color: transparent` wins over the
+   solid navy they set. */
+.about-head h2,
+.services-head h3,
+.areas-head h3,
+.reviews-head h2,
+.faq-head h2,
+.request-card h2 {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(
+    100deg,
+    var(--navy) 0%,
+    var(--navy) 42%,
+    #4f7fbf 49%,
+    #9cc2e8 50%,
+    #4f7fbf 51%,
+    var(--navy) 58%,
+    var(--navy) 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: heading-glint 6.5s linear infinite;
+}
+@keyframes heading-glint {
+  0% { background-position: 180% center; }
+  100% { background-position: -80% center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-head h2,
+  .services-head h3,
+  .areas-head h3,
+  .reviews-head h2,
+  .faq-head h2,
+  .request-card h2 {
+    animation: none;
+    background: none;
+    color: var(--navy);
+    -webkit-text-fill-color: var(--navy);
+  }
 }
 
 /* ─────────────────────────  RESPONSIVE  ───────────────────────── */
