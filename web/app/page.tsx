@@ -30,8 +30,8 @@ export default function Home() {
               src="/soar-logo-full.png"
               alt="Soar Appliance Repair"
               className="brand-logo"
-              width={607}
-              height={231}
+              width={748}
+              height={414}
             />
           </a>
           <a href={CONTACT.phoneHref} className="nav-cta" aria-label={`Call ${CONTACT.phoneDisplay}`}>
@@ -146,11 +146,11 @@ export default function Home() {
           <div className="footer-brand">
             <div className="footer-brand-row">
               <img
-                src="/soar-logo-full.png"
+                src="/soar-logo-white.png"
                 alt="Soar Appliance Repair"
                 className="footer-logo"
-                width={607}
-                height={231}
+                width={748}
+                height={414}
               />
             </div>
             <p>On-site appliance repair across Streamwood and the greater Chicago area.</p>
