@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { APPLIANCE_OPTIONS } from "@/lib/site";
+import AddressAutocomplete from "@/components/AddressAutocomplete";
 
 type Form = {
   firstName: string;
@@ -215,13 +216,15 @@ export default function RequestForm() {
           <label>
             Service address <span className="req">*</span>
           </label>
-          <input
-            type="text"
+          <AddressAutocomplete
             value={form.address}
-            onChange={update("address")}
+            onChange={(v) => {
+              setForm((s) => ({ ...s, address: v }));
+              setErrors((s) => ({ ...s, address: undefined }));
+            }}
             placeholder="123 Main St, Streamwood, IL 60107"
+            error={errors.address}
           />
-          {errors.address && <div className="field-error">{errors.address}</div>}
         </div>
 
         <div className="field">
