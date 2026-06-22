@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { APPLIANCE_OPTIONS } from "@/lib/site";
+import { APPLIANCE_OPTIONS, CONTACT } from "@/lib/site";
 import AddressAutocomplete from "@/components/AddressAutocomplete";
 
 type Form = {
@@ -136,6 +136,11 @@ export default function RequestForm() {
       <h2>Tell us what needs fixing.</h2>
       <p className="lead">
         Fill out the form and we&apos;ll reach out to schedule your repair. It only takes a minute.
+      </p>
+      {/* Always-visible fallback: the form needs JS to submit, so an old device
+          where JS can't run can still reach us by phone. */}
+      <p className="form-call">
+        Prefer to call? <a href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a>
       </p>
 
       <form onSubmit={onSubmit} noValidate>

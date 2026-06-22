@@ -5,6 +5,15 @@
   "engines": {
     "node": ">=20.9.0"
   },
+  "browserslist": [
+    "safari >= 12",
+    "ios_saf >= 12",
+    "chrome >= 64",
+    "and_chr >= 64",
+    "firefox >= 67",
+    "samsung >= 9",
+    "edge >= 79"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -5,6 +5,11 @@ import { useEffect } from "react";
 /** Reveals [data-reveal] elements on scroll, mirroring the prototype's IntersectionObserver. */
 export default function Reveal() {
   useEffect(() => {
+    // Signal that JS is alive. The CSS keeps all content visible by default and
+    // only applies the hidden "pre-animation" state under html.reveal-ready, so
+    // if this bundle never runs (old browser, parse error) nothing stays hidden.
+    document.documentElement.classList.add("reveal-ready");
+
     const els = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
     const reveal = (el: HTMLElement) => el.classList.add("is-visible");
 

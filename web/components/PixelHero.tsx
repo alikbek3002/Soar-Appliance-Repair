@@ -172,16 +172,21 @@ function PixelCanvas({ colors, gap = 6, speed = 30 }: { colors: string[]; gap?: 
     reducedMotionRef.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     init();
 
-    const resizeObserver = new ResizeObserver(() => {
-      init();
-      animate("appear");
-    });
-    if (wrapRef.current) resizeObserver.observe(wrapRef.current);
+    // ResizeObserver is missing on Safari ≤12 / old Android — feature-detect so
+    // the hero effect never throws there (the canvas just won't re-fit on resize).
+    let resizeObserver: ResizeObserver | undefined;
+    if (typeof ResizeObserver !== "undefined") {
+      resizeObserver = new ResizeObserver(() => {
+        init();
+        animate("appear");
+      });
+      if (wrapRef.current) resizeObserver.observe(wrapRef.current);
+    }
 
     animate("appear");
 
     return () => {
-      resizeObserver.disconnect();
+      resizeObserver?.disconnect();
       cancelAnimationFrame(animationRef.current);
     };
   }, [init, animate]);
