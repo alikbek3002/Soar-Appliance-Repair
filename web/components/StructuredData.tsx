@@ -1,4 +1,5 @@
-import { BUSINESS, CONTACT, FAQ, SERVICES, siteUrl } from "@/lib/site";
+import { BUSINESS, CONTACT, FAQ, SERVICES, SOCIAL_PROFILES, siteUrl } from "@/lib/site";
+import { AREA_NAMES, COUNTIES } from "@/lib/areas";
 
 /**
  * JSON-LD for US/local SEO. An @graph with:
@@ -20,7 +21,18 @@ export default function StructuredData() {
     telephone: CONTACT.phoneE164,
     email: CONTACT.email,
     image: `${SITE_URL}/opengraph-image`,
-    logo: `${SITE_URL}/icon-512.png`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/icon-512.png`,
+      width: 512,
+      height: 512,
+    },
+    // Links Google to the place on the map (use the real GBP/Maps URL once live).
+    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      `${CONTACT.addressLine1}, ${CONTACT.city}, ${CONTACT.state} ${CONTACT.postalCode}`
+    )}`,
+    // Ties this site to the same entity on Google/Facebook/etc. (see SOCIAL_PROFILES).
+    ...(SOCIAL_PROFILES.length ? { sameAs: SOCIAL_PROFILES } : {}),
     priceRange: BUSINESS.priceRange,
     currenciesAccepted: "USD",
     paymentAccepted: BUSINESS.paymentAccepted.join(", "),
@@ -38,7 +50,12 @@ export default function StructuredData() {
       latitude: BUSINESS.geo.lat,
       longitude: BUSINESS.geo.lng,
     },
-    areaServed: BUSINESS.areaServed.map((name) => ({ "@type": "City", name })),
+    // Full service-area list (invisible local-SEO signal — see lib/areas.ts).
+    areaServed: AREA_NAMES.map((name) => ({ "@type": "City", name: `${name}, IL` })),
+    containedInPlace: COUNTIES.map((c) => ({
+      "@type": "AdministrativeArea",
+      name: `${c} County, Illinois`,
+    })),
     contactPoint: {
       "@type": "ContactPoint",
       telephone: CONTACT.phoneE164,
@@ -61,7 +78,10 @@ export default function StructuredData() {
           "@type": "Service",
           name: s.name + " Repair",
           description: s.desc,
-          areaServed: BUSINESS.areaServed.map((name) => ({ "@type": "City", name })),
+          areaServed: COUNTIES.map((c) => ({
+            "@type": "AdministrativeArea",
+            name: `${c} County, Illinois`,
+          })),
           provider: { "@id": `${SITE_URL}/#business` },
         },
       })),

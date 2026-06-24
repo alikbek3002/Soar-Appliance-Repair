@@ -17,7 +17,8 @@ const csp = [
   "font-src 'self' https://fonts.gstatic.com",
   "img-src 'self' data:",
   `connect-src 'self'${isDev ? " ws:" : ""}`,
-  "frame-src https://www.openstreetmap.org",
+  // No third-party iframes anymore (footer map was removed).
+  "frame-src 'none'",
   "upgrade-insecure-requests",
 ].join("; ");
 
@@ -47,6 +48,12 @@ const nextConfig = {
       {
         source: "/:path*",
         headers: securityHeaders,
+      },
+      {
+        // Keep API responses out of search indexes (robots.ts already disallows
+        // crawling /api; this covers any that get linked/fetched directly).
+        source: "/api/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
     ];
   },

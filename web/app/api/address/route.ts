@@ -15,11 +15,14 @@ export const runtime = "nodejs";
 
 const SEARCH_BASE = "https://api.mapbox.com/search/searchbox/v1";
 
-// Service area: Streamwood, IL + the greater Chicago area (see lib/site.ts).
-// proximity biases ranking toward the shop; bbox is a hard filter so only
-// addresses in the metro show up (no noise from the rest of the US).
-const PROXIMITY = "-88.1784,42.0256"; // lng,lat — BUSINESS.geo
-const BBOX = "-88.7,41.40,-87.40,42.40"; // minLng,minLat,maxLng,maxLat — Chicago metro
+// Service area: the served communities across Cook, DuPage,
+// Kane, Lake, Will and Kendall counties (see lib/areas.ts).
+// proximity biases ranking toward the shop; bbox is a hard filter tightened to
+// the actual service footprint, so suggestions stay inside the towns we cover
+// (Aurora/Oswego in the west, Joliet in the south, Chicago's lakefront in the
+// east, Buffalo Grove/Deerfield in the north) instead of the whole metro.
+const PROXIMITY = "-88.1784,42.0256"; // lng,lat — BUSINESS.geo (shop location)
+const BBOX = "-88.50,41.45,-87.50,42.25"; // minLng,minLat,maxLng,maxLat — service footprint
 const COUNTRY = "us";
 
 // Light per-IP cap so a bot can't run up the Mapbox bill by hammering suggest.

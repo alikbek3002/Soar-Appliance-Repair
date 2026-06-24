@@ -54,7 +54,7 @@ export default function Testimonials() {
         <div className="reviews-head" data-reveal>
           <span className="eyebrow">Testimonials</span>
           <h2>What our customers say</h2>
-          <p>Real feedback from homeowners across Streamwood and the greater Chicago area.</p>
+          <p>Real feedback from homeowners across Chicago &amp; Suburb areas.</p>
         </div>
 
         <div className="reviews-cols" data-reveal>

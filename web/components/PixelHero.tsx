@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Component as BackgroundSnippets } from "@/components/ui/background-snippets";
 import { BUSINESS, CONTACT } from "@/lib/site";
 
 /* -----------------------------------------------------------------------------
@@ -198,31 +199,55 @@ function PixelCanvas({ colors, gap = 6, speed = 30 }: { colors: string[]; gap?: 
   );
 }
 
-// Appliance brands we service — replaces the original tech-logo marquee.
-const BRANDS = ["Samsung", "LG", "Whirlpool", "Bosch", "GE", "KitchenAid", "Frigidaire", "Sub-Zero", "Speed Queen"];
+// Appliance brands we service — shown in the hero's double marquee.
+const BRANDS = [
+  "Café",
+  "JennAir",
+  "Thermador",
+  "Miele",
+  "Kenmore",
+  "Magic Chef",
+  "Thor",
+  "Dacor",
+  "Monogram",
+  "Viking",
+  "Maytag",
+];
 
 // Pixel palette tuned for the light (white) hero background — mostly soft grey
 // with an occasional slate accent so the field reads as subtle texture.
 const HERO_COLORS = ["#c4cbd1", "#b2bbc2", "#9aa3ab", "#16294a", "#1d5c9e"];
 
+// One seamless marquee row. `direction` sets the scroll way: "right" drifts the
+// brands rightward, "left" leftward. Each row holds the brand set twice so the
+// loop is seamless.
+function BrandRow({ brands, direction }: { brands: string[]; direction: "left" | "right" }) {
+  return (
+    <div className="pixel-hero-marquee-mask">
+      <div className={`pixel-hero-marquee-track pixel-hero-marquee-${direction}`}>
+        <div className="pixel-hero-marquee-row">
+          {brands.map((b) => (
+            <span className="pixel-hero-brand" key={b}>{b}</span>
+          ))}
+        </div>
+        <div className="pixel-hero-marquee-row" aria-hidden="true">
+          {brands.map((b) => (
+            <span className="pixel-hero-brand" key={`c-${b}`}>{b}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Marquee() {
+  // Double marquee: the top row drifts right, the bottom row drifts left. The
+  // bottom row uses the reversed order so the two rows don't read as identical.
   return (
     <div className="pixel-hero-marquee">
       <span className="pixel-hero-marquee-label">Brands we service</span>
-      <div className="pixel-hero-marquee-mask">
-        <div className="pixel-hero-marquee-track">
-          <div className="pixel-hero-marquee-row">
-            {BRANDS.map((b) => (
-              <span className="pixel-hero-brand" key={b}>{b}</span>
-            ))}
-          </div>
-          <div className="pixel-hero-marquee-row" aria-hidden="true">
-            {BRANDS.map((b) => (
-              <span className="pixel-hero-brand" key={`c-${b}`}>{b}</span>
-            ))}
-          </div>
-        </div>
-      </div>
+      <BrandRow brands={BRANDS} direction="right" />
+      <BrandRow brands={[...BRANDS].reverse()} direction="left" />
     </div>
   );
 }
@@ -237,23 +262,25 @@ export default function PixelHero() {
 
   return (
     <section className="pixel-hero" id="top-hero">
-      {/* Animated pixel canvas + edge vignette */}
+      {/* 21st.dev background snippet */}
       <div className="pixel-hero-bg" aria-hidden="true">
-        <PixelCanvas colors={HERO_COLORS} gap={6} speed={30} />
-        <div className="pixel-hero-vignette" />
+        <BackgroundSnippets />
       </div>
 
       <div className="pixel-hero-inner">
-        <div className="pixel-hero-eyebrow">On-site appliance repair · {CONTACT.city}, {CONTACT.state}</div>
+        <div className="pixel-hero-eyebrow">On-site appliance repair · Chicago &amp; Suburb areas</div>
 
         <h1 className="pixel-hero-title">
-          <span className="pixel-hero-word1">Appliances</span>
-          <span className="pixel-hero-word2">Repaired.</span>
+          <span className="pixel-hero-word1">Your Appliance is</span>
+          <span className="pixel-hero-word2">Repaired</span>
+          {/* Keyword-rich H1 text for search engines; visually hidden so the
+              stylised headline above is what users see. */}
+          <span className="sr-only"> — On-Site Appliance Repair in Chicago &amp; Suburbs</span>
         </h1>
 
         <p className="pixel-hero-desc">
           {BUSINESS.name} comes to you — we diagnose and fix every major appliance right in your home.
-          Fast, professional service across {CONTACT.city} &amp; the greater Chicago area.
+          Fast, professional service across {CONTACT.city}{" "}&amp; the greater Chicago area.
         </p>
 
         <div className={`pixel-hero-actions${isLoaded ? " is-loaded" : ""}`}>

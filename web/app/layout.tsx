@@ -3,10 +3,10 @@ import StructuredData from "@/components/StructuredData";
 import { BUSINESS, CONTACT, siteUrl } from "@/lib/site";
 import "./globals.css";
 
-const TITLE =
-  "Appliance Repair in Streamwood, IL | On-Site & Same-Day | Soar Appliance Repair";
+// Kept within Google's display limits — title ~52 chars, description ~158.
+const TITLE = "On-Site Appliance Repair in Chicago & Suburbs | Soar";
 const DESCRIPTION =
-  "On-site appliance repair in Streamwood, IL and the greater Chicago area. We come to you to fix refrigerators, washers, dryers, ovens, dishwashers and ice makers — fast, professional, often same-day. Call (224) 442-2422.";
+  "On-site appliance repair across Chicago & the suburbs — refrigerators, washers, dryers, ovens & dishwashers fixed in your home, often same-day. Call (224) 442-2422.";
 
 export function generateMetadata(): Metadata {
   const SITE_URL = siteUrl();
@@ -19,21 +19,34 @@ export function generateMetadata(): Metadata {
   description: DESCRIPTION,
   applicationName: BUSINESS.name,
   keywords: [
-    "appliance repair Streamwood IL",
+    "appliance repair Chicago suburbs",
     "appliance repair near me",
     "on-site appliance repair",
     "in-home appliance repair",
     "same day appliance repair",
     "Chicago appliance repair",
-    "refrigerator repair Streamwood",
+    "refrigerator repair Chicago suburbs",
     "washer and dryer repair Chicago",
     "dishwasher repair near me",
-    "oven and stove repair",
-    "ice maker repair",
-    "ice maker repair near me",
+    "oven and cooktop repair",
+    "dryer repair near me",
+    "range and stove repair",
     "appliance repair Hoffman Estates",
     "appliance repair Schaumburg",
-    "appliance repair Elgin",
+    "appliance repair Naperville",
+    "appliance repair Aurora IL",
+    "appliance repair Arlington Heights",
+    "appliance repair Evanston",
+    "appliance repair Oak Park",
+    "appliance repair Wheaton",
+    "appliance repair Elmhurst",
+    "appliance repair Des Plaines",
+    "appliance repair Orland Park",
+    "appliance repair Palatine",
+    "appliance repair Downers Grove",
+    "appliance repair Skokie",
+    "DuPage County appliance repair",
+    "Cook County appliance repair",
   ],
   verification: process.env.GOOGLE_SITE_VERIFICATION
     ? { google: process.env.GOOGLE_SITE_VERIFICATION }
@@ -91,6 +104,12 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        {/* Preload the font CSS so it's discovered during HTML parse (faster FCP). */}
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap"
           rel="stylesheet"

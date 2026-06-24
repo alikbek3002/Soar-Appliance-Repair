@@ -227,7 +227,7 @@ export default function RequestForm() {
               setForm((s) => ({ ...s, address: v }));
               setErrors((s) => ({ ...s, address: undefined }));
             }}
-            placeholder="123 Main St, Streamwood, IL 60107"
+            placeholder="123 Main St, Chicago, IL 60601"
             error={errors.address}
           />
         </div>

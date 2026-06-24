@@ -15,12 +15,11 @@ export function siteUrl(): string {
 export const BUSINESS = {
   name: "Soar Appliance Repair",
   legalName: "Soar Appliance Repair",
-  tagline: "On-site appliance repair in Streamwood, IL & the greater Chicago area",
+  tagline: "On-site appliance repair across Chicago & Suburb areas",
   // Geo for US/local SEO targeting.
   geo: { lat: 42.0256, lng: -88.1784 },
   region: "US-IL",
   areaServed: [
-    "Streamwood",
     "Hoffman Estates",
     "Schaumburg",
     "Elgin",
@@ -36,11 +35,12 @@ export const BUSINESS = {
   hours: { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "08:00", closes: "18:00" },
   paymentAccepted: ["Cash", "Credit Card", "Debit Card"],
   knowsAbout: [
-    "Refrigerator repair",
-    "Washer and dryer repair",
+    "Refrigerator and freezer repair",
+    "Washer repair",
+    "Dryer repair",
     "Dishwasher repair",
-    "Oven and stove repair",
-    "Ice maker repair",
+    "Range and stove repair",
+    "Cooktop and oven repair",
   ],
 } as const;
 
@@ -48,15 +48,15 @@ export const BUSINESS = {
 export const FAQ = [
   {
     q: "Do you come to my home to repair appliances?",
-    a: "Yes. Soar Appliance Repair is a mobile, on-site service — our technicians come to your home and repair your appliance on the spot across Streamwood and the greater Chicago area.",
+    a: "Yes. Soar Appliance Repair is a mobile, on-site service — our technicians come to your home and repair your appliance on the spot across Chicago & Suburb areas.",
   },
   {
     q: "What areas do you serve?",
-    a: "We provide on-site appliance repair in Streamwood, Hoffman Estates, Schaumburg, Elgin, Bartlett, Hanover Park, Roselle, South Barrington and the surrounding greater Chicago area.",
+    a: "We provide on-site appliance repair across Chicago & Suburb areas — including Hoffman Estates, Schaumburg, Bartlett, Hanover Park, Roselle, Naperville, Oak Park, Evanston, Wheaton and many more nearby communities.",
   },
   {
     q: "What appliances do you repair?",
-    a: "We repair major home appliances: refrigerators and freezers, washers and dryers, dishwashers, ovens, stoves and cooktops, and ice makers.",
+    a: "We repair all major home appliances: refrigerators and freezers, washers, dryers, dishwashers, ranges and stoves, and cooktops and ovens — across every major brand.",
   },
   {
     q: "Can you offer same-day or fast appliance repair?",
@@ -81,15 +81,27 @@ export const CONTACT = {
   addressLine2: "Streamwood, IL 60107",
 };
 
+// Public profiles for the business — emitted as JSON-LD `sameAs` to tie this
+// website to the SAME entity Google already knows from the Google Business
+// Profile, Facebook, etc. This is an important local-SEO signal.
+// ▶ ACTION: paste your REAL profile URLs here (uncomment / replace). The most
+//   important is the Google Business Profile / Maps listing.
+export const SOCIAL_PROFILES: string[] = [
+  // "https://www.google.com/maps/place/Soar+Appliance+Repair/...",  // Google Business Profile
+  // "https://www.facebook.com/...",
+  // "https://www.instagram.com/...",
+  // "https://www.yelp.com/biz/...",
+];
+
 // Each service powers a photo tile in the services carousel. Clicking a tile
 // opens a modal with the longer description, common issues we fix, and the
 // brands/models we service. Swap `img` for your own photos in /public/services.
 export const SERVICES = [
   {
     num: "01",
-    name: "Refrigerators & Freezers",
+    name: "Refrigerator and Freezer",
     desc: "Cooling failures, leaks, and temperature problems.",
-    img: "/services/fridge.jpg",
+    img: "/services/refrigerator.jpg",
     issues: [
       "Not cooling or freezing properly",
       "Water leaking or pooling inside",
@@ -101,23 +113,39 @@ export const SERVICES = [
   },
   {
     num: "02",
-    name: "Washers & Dryers",
-    desc: "Drainage, spin, heating, and noisy drums.",
+    name: "Washer",
+    desc: "Drainage, spin, leaks, and noisy drums.",
     img: "/services/washer.jpg",
     issues: [
-      "Washer won't drain, fill, or spin",
-      "Dryer not heating or taking too long to dry",
+      "Won't drain, fill, or spin",
+      "Leaking water during the cycle",
       "Loud banging or grinding from the drum",
-      "Leaks, error codes, and door/lid lock faults",
-      "Worn belts, pumps, and heating elements",
+      "Stops mid-cycle or won't start",
+      "Door/lid lock faults and error codes",
+      "Worn belts, pumps, and bearings",
     ],
-    brands: ["Samsung", "LG", "Whirlpool", "GE", "Frigidaire", "Bosch", "Speed Queen", "Electrolux", "Kenmore"],
+    brands: ["Samsung", "LG", "Whirlpool", "GE", "Frigidaire", "Maytag", "Speed Queen", "Electrolux", "Bosch", "Kenmore"],
   },
   {
     num: "03",
-    name: "Dishwashers",
+    name: "Dryer",
+    desc: "No heat, long dry times, and noisy tumbling.",
+    img: "/services/dryer.jpg",
+    issues: [
+      "Not heating or running cold",
+      "Takes too long — clothes still damp",
+      "Drum won't turn or tumble",
+      "Loud squealing or thumping",
+      "Won't start or shuts off early",
+      "Bad heating elements, thermostats, and belts",
+    ],
+    brands: ["Samsung", "LG", "Whirlpool", "GE", "Frigidaire", "Maytag", "Speed Queen", "Electrolux", "Kenmore"],
+  },
+  {
+    num: "04",
+    name: "Dishwasher",
     desc: "Drainage, leaks, and poor cleaning performance.",
-    img: "/services/dishwasher.svg",
+    img: "/services/dishwasher.jpg",
     issues: [
       "Dishes coming out dirty or filmy",
       "Won't drain or standing water in the bottom",
@@ -125,36 +153,47 @@ export const SERVICES = [
       "Won't start, won't fill, or stops mid-cycle",
       "Faulty pumps, spray arms, and door latches",
     ],
-    brands: ["Bosch", "Whirlpool", "KitchenAid", "Samsung", "LG", "GE", "Frigidaire", "Kenmore"],
-  },
-  {
-    num: "04",
-    name: "Ovens, Stoves & Cooktops",
-    desc: "Heating elements, igniters, and controls.",
-    img: "/services/oven.jpg",
-    issues: [
-      "Oven not heating or not reaching temperature",
-      "Burner or igniter won't light (gas)",
-      "Uneven baking and faulty temperature sensors",
-      "Broken control boards, knobs, and displays",
-      "Bad heating elements and bake/broil igniters",
-    ],
-    brands: ["GE", "Whirlpool", "Samsung", "LG", "Frigidaire", "KitchenAid", "Bosch", "Viking", "Kenmore"],
+    brands: ["Bosch", "Whirlpool", "KitchenAid", "Samsung", "LG", "GE", "Frigidaire", "Maytag", "Kenmore"],
   },
   {
     num: "05",
-    name: "Ice Makers",
-    desc: "No ice, slow production, and leaks.",
-    img: "/services/ice.jpg",
+    name: "Range/Stove",
+    desc: "Burners, igniters, and surface heating.",
+    img: "/services/range.jpg",
     issues: [
-      "Not making ice or making too little",
-      "Ice tastes or smells off",
-      "Water leaking or freezing up the line",
-      "Ice maker won't dispense or jams",
-      "Faulty water valves, sensors, and ejector motors",
+      "Gas burner won't light or keeps clicking",
+      "Electric surface element won't heat",
+      "Uneven flames or weak, inconsistent heat",
+      "Sparking or a burner that won't stop igniting",
+      "Broken knobs, switches, and control boards",
     ],
-    brands: ["Whirlpool", "Samsung", "LG", "GE", "Frigidaire", "KitchenAid", "Scotsman", "U-Line", "Kenmore"],
+    brands: ["GE", "Whirlpool", "Samsung", "LG", "Frigidaire", "KitchenAid", "Bosch", "Viking", "Maytag", "Kenmore"],
   },
+  {
+    num: "06",
+    name: "Cooktop & Oven",
+    desc: "Baking heat, igniters, and oven controls.",
+    img: "/services/oven.jpg",
+    issues: [
+      "Oven not heating or won't reach temperature",
+      "Uneven baking and faulty temperature sensors",
+      "Bake or broil igniter failed (gas)",
+      "Cooktop element or induction zone not working",
+      "Broken control boards, knobs, and door seals",
+    ],
+    brands: ["GE", "Whirlpool", "Samsung", "LG", "Frigidaire", "KitchenAid", "Bosch", "Viking", "Thermador", "Kenmore"],
+  },
+];
+
+// "Why homeowners choose Soar" value props — rendered as an icon card grid in
+// the About section (see components/WhyChoose.tsx). `icon` maps to an SVG there.
+export const WHY_SOAR = [
+  { icon: "shield", title: "Licensed & Insured", desc: "Your home is protected." },
+  { icon: "wrench", title: "Experienced Technicians", desc: "Repairs done right the first time." },
+  { icon: "bolt", title: "Fast Service", desc: "Same and next-day appointments in most areas." },
+  { icon: "tag", title: "Upfront Pricing", desc: "No hidden fees, clear estimates before work." },
+  { icon: "badge", title: "Warranty Included", desc: "We stand behind every repair." },
+  { icon: "sparkle", title: "Clean & Professional", desc: "Respectful service from start to finish." },
 ];
 
 // Customer testimonials shown in the "What our customers say" section.
@@ -165,7 +204,7 @@ export const TESTIMONIALS = [
   {
     text: "Our fridge died before Thanksgiving and they had it cooling again by dinner.",
     name: "Megan R.",
-    role: "Streamwood, IL",
+    role: "Oak Park, IL",
   },
   {
     text: "Fixed our dryer instead of selling us a new one — exactly the price quoted.",
@@ -205,15 +244,16 @@ export const TESTIMONIALS = [
   {
     text: "Clear pricing, on-time arrival, and the washer runs like new.",
     name: "Nicole B.",
-    role: "Streamwood, IL",
+    role: "Wheaton, IL",
   },
 ];
 
 export const APPLIANCE_OPTIONS = [
   "Refrigerator / Freezer",
-  "Washer / Dryer",
+  "Washer",
+  "Dryer",
   "Dishwasher",
-  "Oven / Stove / Cooktop",
-  "Ice Maker",
+  "Range / Stove",
+  "Cooktop / Oven",
   "Other",
 ];

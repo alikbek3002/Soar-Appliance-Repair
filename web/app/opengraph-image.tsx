@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const alt = "Soar Appliance Repair — On-site appliance repair in Streamwood, IL";
+export const alt = "Soar Appliance Repair — On-site appliance repair across Chicago & Suburb areas";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -42,7 +42,7 @@ export default async function OgImage() {
               color: "#1d5c9e",
             }}
           >
-            On-Site Appliance Repair · Streamwood, IL
+            On-Site Appliance Repair · Chicago &amp; Suburb areas
           </div>
           <div style={{ fontSize: 64, fontWeight: 700, color: "#16294a", lineHeight: 1.05 }}>
             Your appliances, repaired right the first time.
@@ -50,7 +50,7 @@ export default async function OgImage() {
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 28, color: "#555d63" }}>
-          <div>We come to you · Greater Chicago area</div>
+          <div>We come to you · Chicago &amp; Suburb areas</div>
           <div style={{ fontWeight: 700, color: "#16294a" }}>(224) 442-2422</div>
         </div>
       </div>

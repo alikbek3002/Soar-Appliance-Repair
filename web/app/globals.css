@@ -1,3 +1,7 @@
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
 /* ── Soar Appliance Repair — faithful port of the Claude Design prototype ── */
 
 /* Brand palette, taken from the logo:
@@ -55,6 +59,20 @@ a { color: inherit; text-decoration: none; }
 }
 /* Hidden host for the SVG liquid-glass filter definition. */
 .liquid-defs { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
+
+/* Visually hidden but available to screen readers and crawlers (for keyword-rich
+   H1 text behind the stylised headline). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 .header-inner {
   position: relative;
@@ -335,7 +353,7 @@ a { color: inherit; text-decoration: none; }
   isolation: isolate;
   text-align: center;
   user-select: none;
-  background: radial-gradient(125% 90% at 50% 0%, #ffffff 0%, #f4f6f7 58%, #eef1f3 100%);
+  background: transparent;
 }
 .pixel-hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
 .pixel-hero-canvas { position: absolute; inset: 0; overflow: hidden; }
@@ -353,7 +371,7 @@ a { color: inherit; text-decoration: none; }
   flex-direction: column;
   align-items: center;
   gap: 22px;
-  max-width: 860px;
+  max-width: 980px;
 }
 .pixel-hero-eyebrow {
   font-size: 12.5px;
@@ -369,7 +387,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: center;
   gap: 0.05em 0.28em;
-  line-height: 0.98;
+  line-height: 0.96;
   font-size: clamp(3rem, 9vw, 7.5rem);
 }
 .pixel-hero-word1 { font-family: 'Source Serif 4', serif; font-style: italic; font-weight: 500; }
@@ -392,6 +410,11 @@ a { color: inherit; text-decoration: none; }
   background-clip: text;
   filter: drop-shadow(0 10px 22px rgba(28, 35, 42, 0.18));
   animation: pixel-shimmer 8s linear infinite;
+  /* background-clip:text only paints inside the box, so tall italic/serif glyph
+     tops (e.g. the "s" in "is") poked above it and looked clipped. Pad the box
+     out to give every glyph headroom; line-height above is reduced to keep the
+     two lines from drifting apart. */
+  padding: 0.18em 0.12em 0.1em;
 }
 @keyframes pixel-shimmer {
   0% { background-position: 200% center; }
@@ -474,7 +497,11 @@ html.reveal-ready .pixel-hero-marquee-wrap.is-loaded { opacity: 1; transform: no
   -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
   mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
 }
-.pixel-hero-marquee-track { display: flex; width: max-content; animation: pixel-marquee 30s linear infinite; }
+.pixel-hero-marquee-track { display: flex; width: max-content; }
+/* Double marquee: one row drifts left, the other right (reverse plays the same
+   keyframe backwards). The track holds the brand set twice so the loop seams. */
+.pixel-hero-marquee-left { animation: pixel-marquee 30s linear infinite; }
+.pixel-hero-marquee-right { animation: pixel-marquee 30s linear infinite reverse; }
 .pixel-hero-marquee-row { display: flex; gap: 48px; padding: 4px 24px; align-items: center; }
 @keyframes pixel-marquee {
   0% { transform: translateX(0); }
@@ -499,7 +526,9 @@ html.reveal-ready .pixel-hero-marquee-wrap.is-loaded { opacity: 1; transform: no
 }
 @media (prefers-reduced-motion: reduce) {
   .pixel-hero-title span { animation: none; background-position: 0 center; }
-  .pixel-hero-marquee-track { animation: none; }
+  .pixel-hero-marquee-track,
+  .pixel-hero-marquee-left,
+  .pixel-hero-marquee-right { animation: none; }
 }
 
 /* ── About + Services ── */
@@ -898,6 +927,71 @@ html.reveal-ready .pixel-hero-marquee-wrap.is-loaded { opacity: 1; transform: no
   border: 1px solid #dde1e4;
   border-radius: 999px;
   padding: 8px 15px;
+}
+
+/* ── Why homeowners choose Soar ── */
+.why { margin-top: 64px; border-top: 1px solid #e1e4e7; padding-top: 44px; }
+.why-head { max-width: 640px; margin-bottom: 26px; }
+.why-head .eyebrow { display: block; margin-bottom: 12px; }
+.why-head h3 {
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  margin: 0;
+}
+.why-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.why-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid #e1e4e7;
+  border-radius: 14px;
+  padding: 20px 20px 22px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.why-card:hover {
+  border-color: #cfd6dc;
+  box-shadow: 0 10px 26px rgba(28, 35, 42, 0.07);
+  transform: translateY(-2px);
+}
+.why-icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: #eef3f9;
+  color: var(--blue);
+}
+.why-card-text h4 {
+  margin: 1px 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+.why-card-text p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #555d63;
+}
+@media (max-width: 900px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) {
+  .why { margin-top: 48px; padding-top: 34px; }
+  .why-grid { grid-template-columns: 1fr; }
 }
 
 /* ── FAQ ── */
@@ -1447,3 +1541,55 @@ html.reveal-ready [data-reveal].is-visible { opacity: 1; transform: none; }
   /* Stop the auto-scroll; the first cards stay visible as a static list. */
   .reviews-track { animation: none; }
 }
+
+/* ── 404 / not-found ── */
+.notfound {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background: radial-gradient(120% 90% at 50% 0%, #ffffff 0%, #f4f6f7 60%, #eef1f3 100%);
+}
+.notfound-inner { max-width: 560px; text-align: center; }
+.notfound-logo { height: 40px; width: auto; margin: 0 auto 28px; display: block; }
+.notfound-code {
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(56px, 12vw, 96px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--blue);
+  margin: 0;
+}
+.notfound-title {
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  margin: 12px 0 0;
+}
+.notfound-lead { font-size: 16px; line-height: 1.6; color: #555d63; margin: 14px 0 0; }
+.notfound-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 28px;
+}
+.notfound-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+.notfound-btn-primary { background: var(--navy); color: #fff; }
+.notfound-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(22, 41, 74, 0.22); }
+.notfound-btn-ghost { background: #fff; color: var(--navy); border: 1px solid #dde1e4; }
+.notfound-btn-ghost:hover { border-color: var(--blue); color: var(--blue); }

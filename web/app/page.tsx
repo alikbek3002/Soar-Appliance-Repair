@@ -3,6 +3,7 @@ import Reveal from "@/components/Reveal";
 import RequestForm from "@/components/RequestForm";
 import ServicesCarousel from "@/components/ServicesCarousel";
 import Testimonials from "@/components/Testimonials";
+import WhyChoose from "@/components/WhyChoose";
 import { BUSINESS, CONTACT, FAQ } from "@/lib/site";
 
 // Render at request time so metadata/JSON-LD pick up the runtime SITE_URL.
@@ -30,8 +31,8 @@ export default function Home() {
               src="/soar-logo-full.png"
               alt="Soar Appliance Repair"
               className="brand-logo"
-              width={748}
-              height={414}
+              width={1209}
+              height={288}
             />
           </a>
           <a href={CONTACT.phoneHref} className="nav-cta" aria-label={`Call ${CONTACT.phoneDisplay}`}>
@@ -66,8 +67,8 @@ export default function Home() {
               </div>
               <div className="about-body">
                 <p>
-                  Soar Appliance Repair is a Streamwood-based mobile repair company built on a simple
-                  idea: honest, dependable repairs done right. When a fridge stops cooling or a washer
+                  Soar Appliance Repair is a mobile repair company serving Chicago &amp; Suburb areas,
+                  built on a simple idea: honest, dependable repairs done right. When a fridge stops cooling or a washer
                   won&apos;t drain, you need someone who shows up, diagnoses the real problem, and fixes
                   it.
                 </p>
@@ -78,6 +79,9 @@ export default function Home() {
                 </p>
               </div>
             </div>
+
+            {/* WHY HOMEOWNERS CHOOSE SOAR — value-prop card grid */}
+            <WhyChoose />
 
             <div id="services" className="services">
               <div className="services-head" data-reveal>
@@ -93,8 +97,8 @@ export default function Home() {
                 <span className="eyebrow">Service area</span>
                 <h3>On-site appliance repair across the greater Chicago area.</h3>
                 <p>
-                  Based in Streamwood, IL, we come to you for in-home appliance repair throughout
-                  these nearby communities:
+                  We come to you for in-home appliance repair across Chicago &amp; Suburb areas —
+                  these nearby communities and many more:
                 </p>
               </div>
               <ul className="area-chips">
@@ -149,11 +153,11 @@ export default function Home() {
                 src="/soar-logo-white.png"
                 alt="Soar Appliance Repair"
                 className="footer-logo"
-                width={748}
-                height={414}
+                width={1209}
+                height={288}
               />
             </div>
-            <p>On-site appliance repair across Streamwood and the greater Chicago area.</p>
+            <p>On-site appliance repair across Chicago &amp; Suburb areas.</p>
           </div>
 
           <div className="footer-col-contact">
@@ -172,27 +176,19 @@ export default function Home() {
           <div className="footer-col-services">
             <h4>Services</h4>
             <div className="footer-services">
-              <a href="#services">Refrigerators &amp; Freezers</a>
-              <a href="#services">Washers &amp; Dryers</a>
-              <a href="#services">Dishwashers</a>
-              <a href="#services">Ovens &amp; Cooktops</a>
-              <a href="#services">Ice Makers</a>
+              <a href="#services">Refrigerator &amp; Freezer</a>
+              <a href="#services">Washer</a>
+              <a href="#services">Dryer</a>
+              <a href="#services">Dishwasher</a>
+              <a href="#services">Range / Stove</a>
+              <a href="#services">Cooktop &amp; Oven</a>
             </div>
-          </div>
-
-          <div className="footer-col-map">
-            <h4>Find us</h4>
-            <iframe
-              title="Service area map — Streamwood, IL"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-88.2450%2C41.9850%2C-88.1150%2C42.0650&layer=mapnik&marker=42.0256%2C-88.1784"
-              className="footer-map"
-            />
           </div>
         </div>
 
         <div className="footer-bottom">
           <span>© 2026 Soar Appliance Repair. All rights reserved.</span>
-          <span>Streamwood, IL</span>
+          <span>Chicago &amp; Suburb areas</span>
         </div>
       </footer>
     </>
