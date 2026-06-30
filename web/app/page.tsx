@@ -28,11 +28,11 @@ export default function Home() {
         <div className="header-inner">
           <a href="#top" className="brand" aria-label="Soar Appliance Repair — home">
             <img
-              src="/soar-logo.svg"
+              src="/soar-logo.png"
               alt="Soar Appliance Repair"
               className="brand-logo"
-              width={1592}
-              height={328}
+              width={1241}
+              height={300}
             />
           </a>
           <a href={CONTACT.phoneHref} className="nav-cta" aria-label={`Call ${CONTACT.phoneDisplay}`}>
@@ -150,11 +150,11 @@ export default function Home() {
           <div className="footer-brand">
             <div className="footer-brand-row">
               <img
-                src="/soar-logo-white.svg"
+                src="/soar-logo-white.png"
                 alt="Soar Appliance Repair"
                 className="footer-logo"
-                width={1592}
-                height={328}
+                width={1241}
+                height={300}
               />
             </div>
             <p>On-site appliance repair across Chicago &amp; Suburb areas.</p>

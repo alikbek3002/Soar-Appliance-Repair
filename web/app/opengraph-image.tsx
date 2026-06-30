@@ -7,8 +7,8 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function OgImage() {
-  const emblem = await readFile(join(process.cwd(), "public", "soar-emblem-dark.png"));
-  const emblemSrc = `data:image/png;base64,${emblem.toString("base64")}`;
+  const logo = await readFile(join(process.cwd(), "public", "og-logo.png"));
+  const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
 
   return new ImageResponse(
     (
@@ -24,12 +24,9 @@ export default async function OgImage() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={emblemSrc} width={84} height={90} alt="" />
-          <div style={{ fontSize: 40, fontWeight: 700, color: "#16294a" }}>
-            Soar Appliance Repair
-          </div>
+          <img src={logoSrc} height={104} alt="Soar Appliance Repair" />
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>

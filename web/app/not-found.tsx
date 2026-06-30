@@ -13,11 +13,11 @@ export default function NotFound() {
       <div className="notfound-inner">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/soar-logo.svg"
+          src="/soar-logo.png"
           alt="Soar Appliance Repair"
           className="notfound-logo"
-          width={1592}
-          height={328}
+          width={1241}
+          height={300}
         />
         <p className="notfound-code">404</p>
         <h1 className="notfound-title">We couldn&apos;t find that page.</h1>
