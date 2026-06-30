@@ -271,8 +271,8 @@ export default function PixelHero() {
         <div className="pixel-hero-eyebrow">On-site appliance repair · Chicago &amp; Suburb areas</div>
 
         <h1 className="pixel-hero-title">
-          <span className="pixel-hero-word1">Your Appliance is</span>
-          <span className="pixel-hero-word2">Repaired</span>
+          <span className="pixel-hero-word1">Repair You Can</span>
+          <span className="pixel-hero-word2">Trust</span>
           {/* Keyword-rich H1 text for search engines; visually hidden so the
               stylised headline above is what users see. */}
           <span className="sr-only"> — On-Site Appliance Repair in Chicago &amp; Suburbs</span>
