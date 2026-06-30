@@ -43,6 +43,19 @@ const nextConfig = {
   reactStrictMode: true,
   // Don't advertise the framework.
   poweredByHeader: false,
+  // Canonicalize: send www -> apex so the site has a single address.
+  // Requires www.soarappliance.com to be added as a Railway custom domain so
+  // the request actually reaches this app over HTTPS (see DEPLOY.md).
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.soarappliance.com" }],
+        destination: "https://soarappliance.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
