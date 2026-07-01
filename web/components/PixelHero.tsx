@@ -199,19 +199,31 @@ function PixelCanvas({ colors, gap = 6, speed = 30 }: { colors: string[]; gap?: 
   );
 }
 
-// Appliance brands we service — shown in the hero's double marquee.
+// Appliance brands we service — shown in the hero's double marquee. Kept in
+// sync with the brands listed on the service cards (see SERVICES in lib/site.ts);
+// premium and mainstream names are interleaved so the marquee reads evenly.
 const BRANDS = [
+  "Samsung",
   "Café",
-  "JennAir",
+  "LG",
   "Thermador",
+  "Whirlpool",
+  "JennAir",
+  "GE",
   "Miele",
-  "Kenmore",
-  "Magic Chef",
-  "Thor",
-  "Dacor",
-  "Monogram",
+  "Frigidaire",
   "Viking",
+  "KitchenAid",
+  "Monogram",
+  "Bosch",
+  "Sub-Zero",
   "Maytag",
+  "Dacor",
+  "Kenmore",
+  "Thor",
+  "Speed Queen",
+  "Magic Chef",
+  "Electrolux",
 ];
 
 // Pixel palette tuned for the light (white) hero background — mostly soft grey

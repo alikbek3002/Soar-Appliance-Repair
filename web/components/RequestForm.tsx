@@ -211,7 +211,7 @@ export default function RequestForm() {
               type="tel"
               value={form.phone}
               onChange={update("phone")}
-              placeholder="(202) 555-0148"
+              placeholder="(123) 123-1234"
             />
             {errors.phone && <div className="field-error">{errors.phone}</div>}
           </div>
