@@ -48,7 +48,9 @@ export default function Home() {
             <span className="nav-sep" aria-hidden="true" />
             <a href="#reviews" className="nav-link">Reviews</a>
             <span className="nav-sep" aria-hidden="true" />
-            <a href="#request" className="nav-link">Request</a>
+            {/* "Now" is dropped on phones so the single-row glass island still
+                fits — the link reads "Book" there. */}
+            <a href="#request" className="nav-link nav-link-book">Book<span className="nav-link-book-now"> Now</span></a>
           </nav>
         </div>
       </header>

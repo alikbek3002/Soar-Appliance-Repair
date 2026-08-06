@@ -137,7 +137,7 @@ export default function ServicesCarousel() {
               <p className="svc-modal-note">…and most other major brands. Don&apos;t see yours? Just ask.</p>
 
               <a href="#request" className="btn-primary svc-modal-cta" onClick={() => setActive(null)}>
-                Request this repair
+                Book this repair
               </a>
             </div>
           </div>

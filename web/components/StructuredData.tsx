@@ -16,7 +16,7 @@ export default function StructuredData() {
     name: BUSINESS.name,
     legalName: BUSINESS.legalName,
     description: BUSINESS.tagline,
-    slogan: "Your appliances, repaired right the first time.",
+    slogan: BUSINESS.slogan,
     url: SITE_URL,
     telephone: CONTACT.phoneE164,
     email: CONTACT.email,

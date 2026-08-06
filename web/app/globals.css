@@ -160,6 +160,10 @@ a { color: inherit; text-decoration: none; }
   transition: color 0.2s ease;
 }
 .nav-link:hover { color: var(--navy); }
+/* "Book Now" is the nav's conversion link — weighted heavier than the rest
+   without becoming a second button next to the phone CTA. */
+.nav-link-book { font-weight: 700; color: var(--navy); white-space: nowrap; }
+.nav-link-book:hover { color: var(--blue); }
 /* Vertical divider between the anchors — hidden on desktop, shown on mobile. */
 .nav-sep {
   display: none;
@@ -356,6 +360,38 @@ a { color: inherit; text-decoration: none; }
   background: transparent;
 }
 .pixel-hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+/* Hero backdrop layers — see components/HeroBackground.tsx for what each does. */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #fdfdfe 44%, #f7f9fa 76%, #f4f6f7 100%);
+}
+.hero-bg-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(22, 41, 74, 0.115) 1px, transparent 0);
+  background-size: 26px 26px;
+  /* Concentrates the texture behind the headline and dissolves it well before
+     the edges, so the hero never reads as a full-bleed template grid. */
+  -webkit-mask-image: radial-gradient(ellipse 72% 56% at 50% 40%, #000 0%, rgba(0, 0, 0, 0.4) 54%, transparent 78%);
+  mask-image: radial-gradient(ellipse 72% 56% at 50% 40%, #000 0%, rgba(0, 0, 0, 0.4) 54%, transparent 78%);
+}
+.hero-bg-halo {
+  position: absolute;
+  inset: 0;
+  background:
+    /* headline halo */
+    radial-gradient(ellipse 52% 38% at 50% 32%, rgba(29, 92, 158, 0.085), transparent 68%),
+    /* column of light rising through the middle — "rises above" */
+    radial-gradient(ellipse 26% 62% at 50% 96%, rgba(29, 92, 158, 0.07), transparent 70%),
+    /* low glows anchoring the bottom corners */
+    radial-gradient(ellipse 44% 26% at 6% 98%, rgba(29, 92, 158, 0.09), transparent 72%),
+    radial-gradient(ellipse 44% 26% at 94% 98%, rgba(29, 92, 158, 0.09), transparent 72%);
+  /* Kill the tint over the last strip so the hero's final pixels are exactly
+     the #f4f6f7 the About section starts on — no visible seam. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 90%, transparent 100%);
+}
 .pixel-hero-canvas { position: absolute; inset: 0; overflow: hidden; }
 .pixel-hero-canvas canvas { display: block; width: 100%; height: 100%; }
 .pixel-hero-vignette {
@@ -373,23 +409,57 @@ a { color: inherit; text-decoration: none; }
   gap: 22px;
   max-width: 980px;
 }
+/* Brand pill above the slogan: soft glass chip, live dot, muted location half. */
 .pixel-hero-eyebrow {
-  font-size: 12.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 16px 7px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(29, 92, 158, 0.16);
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(22, 41, 74, 0.07);
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--blue);
+  white-space: nowrap;
 }
+.pixel-hero-eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 0 rgba(29, 92, 158, 0.5);
+  animation: pixel-hero-pulse 2.4s ease-out infinite;
+}
+@keyframes pixel-hero-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(29, 92, 158, 0.45); }
+  70% { box-shadow: 0 0 0 8px rgba(29, 92, 158, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(29, 92, 158, 0); }
+}
+.pixel-hero-eyebrow-sep {
+  width: 1px;
+  height: 11px;
+  background: rgba(29, 92, 158, 0.25);
+}
+.pixel-hero-eyebrow-muted { color: #7c858d; letter-spacing: 0.1em; }
 .pixel-hero-title {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.05em 0.28em;
+  gap: 0.02em 0.28em;
   line-height: 0.96;
-  font-size: clamp(3rem, 9vw, 7.5rem);
+  font-size: clamp(2.7rem, 8.4vw, 7rem);
 }
+/* Each half stays on its own line as a unit, so the slogan always reads as
+   "Service That / Rises Above" instead of breaking mid-phrase. */
+.pixel-hero-title > span:not(.sr-only) { white-space: nowrap; }
 .pixel-hero-word1 { font-family: 'Source Serif 4', serif; font-style: italic; font-weight: 500; }
 .pixel-hero-word2 { font-family: 'IBM Plex Sans', -apple-system, sans-serif; font-weight: 800; letter-spacing: -0.03em; }
 /* Dark "liquid metal" shimmer on the title words — a light highlight sweeps
@@ -523,9 +593,14 @@ html.reveal-ready .pixel-hero-marquee-wrap.is-loaded { opacity: 1; transform: no
   .pixel-hero-marquee-row { gap: 32px; padding: 4px 16px; }
   .pixel-hero-brand { font-size: 17px; }
   .pixel-hero-cta-primary, .pixel-hero-cta-secondary { height: 44px; padding: 0 18px; font-size: 14px; }
+  /* The pill is nowrap — drop the location half so it never overflows on
+     phones. The same info still sits in the paragraph and the SEO h1 text. */
+  .pixel-hero-eyebrow { font-size: 11px; letter-spacing: 0.12em; padding: 6px 14px 6px 11px; }
+  .pixel-hero-eyebrow-sep, .pixel-hero-eyebrow-muted { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .pixel-hero-title span { animation: none; background-position: 0 center; }
+  .pixel-hero-eyebrow-dot { animation: none; }
   .pixel-hero-marquee-track,
   .pixel-hero-marquee-left,
   .pixel-hero-marquee-right { animation: none; }
@@ -1449,6 +1524,7 @@ html.reveal-ready [data-reveal].is-visible { opacity: 1; transform: none; }
   .brand-logo { height: 22px; }
   .nav { order: 2; flex-basis: auto; width: auto; margin-top: 0; gap: 12px; }
   .nav-link { font-size: 12px; }
+  .nav-link-book-now { display: none; }
   .nav-sep { display: none; }
   /* Phone becomes a round icon button so the whole bar fits on one line. */
   .nav-cta { order: 3; padding: 0; width: 34px; height: 34px; border-radius: 50%; }

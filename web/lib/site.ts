@@ -16,18 +16,24 @@ export const BUSINESS = {
   name: "Soar Appliance Repair",
   legalName: "Soar Appliance Repair",
   tagline: "On-site appliance repair across Chicago & Suburb areas",
+  // Brand slogan (marketing voice). `tagline` stays keyword-rich for SEO/meta;
+  // this is the line the client leads with on the hero and in schema.org.
+  slogan: "Service That Rises Above",
   // Geo for US/local SEO targeting.
   geo: { lat: 42.0256, lng: -88.1784 },
   region: "US-IL",
+  // The communities shown as chips in the Service Area section (page.tsx).
+  // The full, invisible SEO list lives in lib/areas.ts — keep every name here
+  // present there too.
   areaServed: [
-    "Hoffman Estates",
+    "Aurora",
+    "Naperville",
     "Schaumburg",
     "Elgin",
-    "Bartlett",
-    "Hanover Park",
-    "Roselle",
-    "South Barrington",
-    "Greater Chicago",
+    "Elmhurst",
+    "Glenview",
+    "Wheaton",
+    "Barrington",
   ],
   priceRange: "$$",
   // Hours are illustrative — adjust to real availability.
@@ -52,7 +58,7 @@ export const FAQ = [
   },
   {
     q: "What areas do you serve?",
-    a: "We provide on-site appliance repair across Chicago & Suburb areas — including Hoffman Estates, Schaumburg, Bartlett, Hanover Park, Roselle, Naperville, Oak Park, Evanston, Wheaton and many more nearby communities.",
+    a: "We provide on-site appliance repair across Chicago & Suburb areas — including Aurora, Naperville, Schaumburg, Elgin, Elmhurst, Glenview, Wheaton, Barrington and many more nearby communities.",
   },
   {
     q: "What appliances do you repair?",

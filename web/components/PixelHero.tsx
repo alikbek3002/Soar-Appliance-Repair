@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Component as BackgroundSnippets } from "@/components/ui/background-snippets";
+import HeroBackground from "@/components/HeroBackground";
 import { BUSINESS, CONTACT } from "@/lib/site";
 
 /* -----------------------------------------------------------------------------
@@ -274,17 +274,24 @@ export default function PixelHero() {
 
   return (
     <section className="pixel-hero" id="top-hero">
-      {/* 21st.dev background snippet */}
       <div className="pixel-hero-bg" aria-hidden="true">
-        <BackgroundSnippets />
+        <HeroBackground />
       </div>
 
       <div className="pixel-hero-inner">
-        <div className="pixel-hero-eyebrow">On-site appliance repair · Chicago &amp; Suburb areas</div>
+        {/* Brand line above the slogan — the client's "SOAR Appliance Repair —
+            Service That Rises Above" split across eyebrow + headline so the
+            slogan gets the full display treatment. */}
+        <div className="pixel-hero-eyebrow">
+          <span className="pixel-hero-eyebrow-dot" aria-hidden="true" />
+          {BUSINESS.name}
+          <span className="pixel-hero-eyebrow-sep" aria-hidden="true" />
+          <span className="pixel-hero-eyebrow-muted">On-site · Chicago &amp; Suburbs</span>
+        </div>
 
         <h1 className="pixel-hero-title">
-          <span className="pixel-hero-word1">Repair You Can</span>
-          <span className="pixel-hero-word2">Trust</span>
+          <span className="pixel-hero-word1">Service That</span>
+          <span className="pixel-hero-word2">Rises Above</span>
           {/* Keyword-rich H1 text for search engines; visually hidden so the
               stylised headline above is what users see. */}
           <span className="sr-only"> — On-Site Appliance Repair in Chicago &amp; Suburbs</span>
@@ -297,7 +304,7 @@ export default function PixelHero() {
 
         <div className={`pixel-hero-actions${isLoaded ? " is-loaded" : ""}`}>
           <a href="#request" className="pixel-hero-cta-primary">
-            <span>Request a repair</span>
+            <span>Book now</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M5 12h14" />
               <path d="m13 6 6 6-6 6" />

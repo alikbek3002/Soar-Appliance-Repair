@@ -120,11 +120,11 @@ export default function RequestForm() {
         </svg>
         <h2>Thank you, {submittedName}!</h2>
         <p>
-          Your repair request has been received. A member of the Soar Appliance Repair team will
+          Your booking has been received. A member of the Soar Appliance Repair team will
           contact you shortly at the number you provided to confirm your appointment.
         </p>
         <button type="button" className="confirm-reset" onClick={reset}>
-          Submit another request
+          Book another repair
         </button>
       </div>
     );
@@ -256,7 +256,7 @@ export default function RequestForm() {
         </div>
 
         <button type="submit" className="submit-btn" disabled={sending}>
-          {sending ? "Sending…" : "Submit repair request"}
+          {sending ? "Sending…" : "Book my repair"}
         </button>
         <p className="form-note">We&apos;ll only use your details to schedule your repair.</p>
       </form>

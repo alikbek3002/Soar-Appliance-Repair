@@ -30,7 +30,7 @@ export default function NotFound() {
             Back to home
           </Link>
           <Link href="/#request" className="notfound-btn notfound-btn-ghost">
-            Request a repair
+            Book now
           </Link>
           <a href={CONTACT.phoneHref} className="notfound-btn notfound-btn-ghost">
             Call {CONTACT.phoneDisplay}
