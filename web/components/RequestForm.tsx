@@ -256,7 +256,7 @@ export default function RequestForm() {
         </div>
 
         <button type="submit" className="submit-btn" disabled={sending}>
-          {sending ? "Sending…" : "Book my repair"}
+          {sending ? "Sending…" : "Book now"}
         </button>
         <p className="form-note">We&apos;ll only use your details to schedule your repair.</p>
       </form>

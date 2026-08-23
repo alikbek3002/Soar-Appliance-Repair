@@ -79,12 +79,14 @@ export const CONTACT = {
   phoneHref: "tel:+12244422422",
   phoneE164: "+12244422422",
   email: "appliance@soargroup.info",
-  addressLine1: "6 Wild Rose Ct",
+  // No street address on purpose. This object is imported by client components
+  // ("use client"), so anything here ships in the browser JS bundle — the street
+  // would be public even though nothing renders it. City-level is all the site
+  // and its JSON-LD need.
   city: "Streamwood",
   state: "IL",
   postalCode: "60107",
   country: "US",
-  addressLine2: "Streamwood, IL 60107",
 };
 
 // Public profiles for the business — emitted as JSON-LD `sameAs` to tie this

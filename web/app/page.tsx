@@ -164,14 +164,14 @@ export default function Home() {
 
           <div className="footer-col-contact">
             <h4>Contact</h4>
+            {/* Mobile service business — no walk-in location, so the street
+                address is deliberately not shown. Service area is stated
+                instead. (The postal address still ships in the LocalBusiness
+                JSON-LD, which Google needs for local ranking.) */}
             <div className="footer-contact">
               <a href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a>
               <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
-              <span className="addr">
-                {CONTACT.addressLine1}
-                <br />
-                {CONTACT.addressLine2}
-              </span>
+              <span className="addr">We come to you — Chicago &amp; Suburb areas</span>
             </div>
           </div>
 

@@ -298,8 +298,10 @@ export default function PixelHero() {
         </h1>
 
         <p className="pixel-hero-desc">
-          {BUSINESS.name} comes to you — we diagnose and fix every major appliance right in your home.
-          Fast, professional service across {CONTACT.city}{" "}&amp; the greater Chicago area.
+          {/* Explicit {" "} — JSX drops the space between the expression and the
+              following text once the trailing text node ends the element. */}
+          {BUSINESS.name}{" "}comes to you — we diagnose and fix every major appliance right in
+          your home. Fast, professional service across Chicago &amp; the surrounding suburbs.
         </p>
 
         <div className={`pixel-hero-actions${isLoaded ? " is-loaded" : ""}`}>

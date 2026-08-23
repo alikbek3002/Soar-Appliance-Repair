@@ -27,19 +27,17 @@ export default function StructuredData() {
       width: 512,
       height: 512,
     },
-    // Links Google to the place on the map (use the real GBP/Maps URL once live).
-    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      `${CONTACT.addressLine1}, ${CONTACT.city}, ${CONTACT.state} ${CONTACT.postalCode}`
-    )}`,
     // Ties this site to the same entity on Google/Facebook/etc. (see SOCIAL_PROFILES).
     ...(SOCIAL_PROFILES.length ? { sameAs: SOCIAL_PROFILES } : {}),
     priceRange: BUSINESS.priceRange,
     currenciesAccepted: "USD",
     paymentAccepted: BUSINESS.paymentAccepted.join(", "),
     knowsAbout: BUSINESS.knowsAbout,
+    // Service-area business: no walk-in location, so the street address is
+    // deliberately omitted. City + region + postal code is what Google needs
+    // for local ranking; `areaServed` below carries the actual coverage.
     address: {
       "@type": "PostalAddress",
-      streetAddress: CONTACT.addressLine1,
       addressLocality: CONTACT.city,
       addressRegion: CONTACT.state,
       postalCode: CONTACT.postalCode,
