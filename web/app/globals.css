@@ -986,6 +986,13 @@ html.reveal-ready .pixel-hero-marquee-wrap.is-loaded { opacity: 1; transform: no
   margin: 0;
 }
 .areas-head p { font-size: 16px; line-height: 1.6; color: #555d63; margin: 14px 0 0; }
+/* Desktop: the block sits between the centred services orbit and the centred
+   FAQ column, so a left-flush heading + chips read as misaligned. Centre it. */
+@media (min-width: 769px) {
+  .areas { text-align: center; }
+  .areas-head { margin: 0 auto; }
+  .area-chips { justify-content: center; }
+}
 .area-chips {
   list-style: none;
   padding: 0;
